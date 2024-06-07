@@ -28,7 +28,17 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+# cors 설정
+CORS_ALLOWED_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
+
+# csrf 설정
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3000',
+    'http://127.0.0.1:8000',
+]
 
 
 # Application definition
@@ -44,9 +54,13 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'critique',
+
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
