@@ -31,8 +31,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # cors 설정
-CORS_ALLOWED_CREDENTIALS = True
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    'https://port-0-filmcritique-server-ss7z32llwun1pv1.sel5.cloudtype.app',
+]
 
 # csrf 설정
 CSRF_TRUSTED_ORIGINS = [
